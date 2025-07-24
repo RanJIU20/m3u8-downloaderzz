@@ -390,25 +390,77 @@
     .m-p-retry:hover {
       opacity: 0.9;
     }
-  </style>
+  
+/* 响应式优化：小屏设备 */
+@media screen and (max-width: 768px) {
+  #m-app {
+    padding: 10px 15px 40px;
+  }
+
+  .m-p-action {
+    font-size: 22px;
+  }
+
+  .m-p-input-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .m-p-input-container input,
+  .m-p-input-container .range-input {
+    width: 100% !important;
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .m-p-input-container div {
+    width: 100%;
+    font-size: 18px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  .m-p-stream,
+  .m-p-cross,
+  .m-p-final {
+    font-size: 16px;
+    height: auto;
+    line-height: 1.4;
+    padding: 12px;
+  }
+
+  .m-p-tips {
+    font-size: 14px;
+  }
+
+  .m-p-force,
+  .m-p-retry {
+    position: static;
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .m-p-segment .item {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 12px;
+  }
+}
+
+</style>
 </head>
 
 <body>
   <section id="m-app" v-cloak>
     <!--顶部操作提示-->
     <section class="m-p-action g-box">{{tips}}</section>
-    <a class="m-p-help" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader/blob/master/README-EN.md">?</a>
-    <a class="m-p-tamper" target="_blank" href="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/m3u8-downloader.user.js">tamperMonkey plugin</a>
-    <a class="m-p-github" target="_blank" href="https://github.com/Momo707577045/m3u8-downloader">github</a>
-    <a class="m-p-language" href="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/index.html">中文版</a>
-    <a class="m-p-other" target="_blank" href="https://blog.luckly-mjw.cn/tool-show/index.html">other efficiency tools</a>
-
-    <!--广告-->
-    <a v-if="isShowRefer" class="m-p-refer" target="_blank" href="https://segmentfault.com/a/1190000024416860">
-      <img src="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/imgs/001.png" class="link">
-      <img src="https://blog.luckly-mjw.cn/tool-show/m3u8-downloader/imgs/003.png" class="text">
-      <i class="close" @click.prevent="isShowRefer=false"></i>
-    </a>
+    
+    
+    
+    <a class="m-p-language" href="https://m3u8tomp4.r9jade.dpdns.org/index.html">中文版</a>
 
     <!--文件载入-->
     <div class="m-p-temp-url">test url：https://upyun.luckly-mjw.cn/Assets/media-source/example/media/index.m3u8</div>
@@ -434,7 +486,7 @@
     </section>
 
     <div class="m-p-cross" @click="copyCode">When the resource cannot be downloaded and cross domain restriction occurs, open the console on the video source page, inject code to solve the problem, and click this button to copy the code</div>
-    <a class="m-p-final" target="_blank" href="https://github.com/Momo707577045/media-source-extract">Can't watch the downloaded video? Try the terminal solution "undifferentiated video extraction tool", with the "tamperMonkey" plugin!!!</a>
+    
 
     <template v-if="finishList.length > 0">
       <div class="m-p-line"></div>
@@ -459,9 +511,9 @@
   })();
 </script>
 <!--vue 前端框架-->
-<script src="https://upyun.luckly-mjw.cn/lib/vue.js"></script>
-<script src="https://upyun.luckly-mjw.cn/lib/aes-decryptor.js"></script>
-<script src="https://upyun.luckly-mjw.cn/lib/mux-mp4.js"></script>
+<script src="./vue.js"></script>
+<script src="./aes-decryptor.js"></script>
+<script src="./mux-mp4.js"></script>
 
 <script>
 
